@@ -116,15 +116,17 @@ $$y = \sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} \Rightarrow \given{$y = 
     To start, we use derivative from \textcircled{1} using
     \textbf{Quotient Rule} $\fbox{$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$}$:
     $$
-                cos\theta = \frac{x}{s}
-    \Rightarrow -sin\theta\theta' = \frac{x'}{s}
-    \Rightarrow \theta' = \frac{x'}{s(-sin\theta)}
+    cos\theta = \frac{x}{s} \Rightarrow cos\theta = \frac{x}{13}
+    \Rightarrow -sin\theta\theta' = \frac{x' \times 13 - x \times 0}{13^2}
+    \Rightarrow -sin\theta\theta' = \frac{x' \times 13}{13 \times 13}
     $$
-
-    Then we substitute with \textcircled{2}:
+    In the next step, notice that we substitute $-sin\theta$ with \textcircled{2} to be $-\frac{y}{s}$:
     $$
-    \theta' = \frac{x'}{s (-\frac{y}{s})} = \frac{5}{13 (-\frac{5}{13})} = -\frac{5}{5}
-    \Rightarrow \theanswer{$\theta' = -1 rad/sec$}
+    \theta' = \frac{x'}{13 \times -sin\theta}
+    = \frac{x'}{13 \times -\frac{y}{s}}
+    = \frac{5}{13 \times -\frac{5}{13}}
+    = -\frac{5}{5}
+    \Rightarrow \theanswer{$\theta' = -1 rad/s$}
     $$
 \end{enumerate}
 
