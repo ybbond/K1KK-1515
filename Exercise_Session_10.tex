@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+\usepackage[paperwidth=21cm, paperheight=29.7cm, margin=1.5cm]{geometry}
+
+\newcommand{\threestars}{\begin{center}$ {\ast}\,{\ast}\,{\ast} $\end{center}}
+
+\title{Exercise for Kalkulus 1 K1KK 1515 Session 10}
+\author{Yohanes Bandung Bondowoso (01085250015)}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\noindent This exercise is a requirement for attendance as part of asynchronous activity on Session 10.
+I will solve the exercise for the first section of \textbf{Rates Equations}.
+
+
+\threestars
+
+
+\begin{tabular}{|p{0.9\textwidth}}
+  \textbf{Exercise 1.} The voltage $V$ (volts), current $I$ (amperes), and resistance $R$ (ohms)
+  of an electric circuit like the one shown here are related by the equation $V = IR$. Suppose that $V$ is increasing
+  at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Let $t$ denote time in seconds.
+  \begin{enumerate}
+    \item What is the value of $dV/dt$?
+    \item What is the value of $dI/dt$?
+    \item What equation relates $dR/dt$ to $dV/dt$ and $dI/dt$?
+    \item Find the rate at which $R$ is changing when $V = 12 volts$ and $I = 2 amp$.
+          Is $R$ increasing, or decreasing?
+  \end{enumerate}
+\end{tabular}\vspace{1em}
+
+\noindent I will write differentiation with the shorthand. So for example $dV/dt$ will be $V'$.
+\newline Given the problem definition, we know the answer for (1) and (2).
+
+\begin{enumerate}
+  \item $V' = 1volt/sec$
+    \newline As the value is \textit{increasing}, it is \textbf{positive}.
+  \item $I' = -\frac{1}{3}amp/sec$
+    \newline As the value is \textit{decreasing}, it is \textbf{negative}.
+  \item Given \textbf{Ohm's Law} $\fbox{$V=IR$}$, with differentiation rule $\fbox{$(uv)' = u'v + uv'$}$.
+    $$V' = I'R + IR' \Rightarrow R' = \frac{V' - I'R}{I}$$
+  \item Given $R = \frac{V}{I} = \frac{12}{2} = 6$, and the results so that:
+    $$R' = \frac{V' - I'R}{I} = \frac{1 - (-\frac{1}{3})6}{2} = \frac{1 - (-2)}{2} = \frac{3}{2} = 1,5ohm/sec$$
+    As the result is \textbf{positive}, it is \textit{increasing}.
+\end{enumerate}
+
+In this exercise, we implement differentiation for known equation \textbf{Ohm's Law}. I learnt that derivative with respect of time $t$ will result in the value of its velocity.
+
+
+\threestars
+
+
+\end{document}

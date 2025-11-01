@@ -1,0 +1,221 @@
+\documentclass[12pt]{article}
+
+\usepackage[paperwidth=21cm, paperheight=29.7cm, margin=1.5cm]{geometry}
+\usepackage{xcolor}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\newcommand{\threestars}{\begin{center}$ {\ast}\,{\ast}\,{\ast} $\end{center}}
+\newcommand{\theanswer}[1]{\colorbox{yellow}{#1}}
+\newcommand{\given}[1]{\colorbox{lime}{#1}}
+
+\title{Exercises for Kalkulus 1 K1KK 1515 Session 10 \& 11}
+\author{Yohanes Bandung Bondowoso (01085250015)}
+\date{}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+
+\noindent These exercises \underline{\textbf{originally}} is a requirement for attendance of asynchronous activity on Session 10.
+\newline Then I continue for the task of synchronous activity on Session 11.
+\newline I will solve all of the exercises for section \textbf{§Rates Equations}.
+
+
+\vspace{2em}
+
+
+\begin{wrapfigure}{l}{0.22\textwidth}
+  \includegraphics[width=0.2\textwidth]{./assets/e11_1.png}
+\end{wrapfigure}
+\noindent\textbf{Exercise 1.} The voltage $V$ (volts), current $I$ (amperes), and resistance $R$ (ohms)
+of an electric circuit like the one shown here are related by the equation $V = IR$. Suppose that $V$ is increasing
+at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Let $t$ denote time in seconds.
+\begin{enumerate}
+  \item What is the value of $dV/dt$?
+  \item What is the value of $dI/dt$?
+  \item What equation relates $dR/dt$ to $dV/dt$ and $dI/dt$?
+  \item Find the rate at which $R$ is changing when $V = 12 volts$ and $I = 2 amp$.
+        Is $R$ increasing, or decreasing?
+\end{enumerate}
+
+\threestars
+
+\noindent I will write differentiation with the shorthand. So for example $dV/dt$ will be $V'$.
+\newline Given the problem definition, we know the answer for (1) and (2).
+
+\begin{enumerate}
+  \item \theanswer{$V' = 1 V/s$}
+    \newline As the value is \textit{increasing}, it is \textbf{positive}.
+  \item \theanswer{$I' = -\frac{1}{3} A/s$}
+    \newline As the value is \textit{decreasing}, it is \textbf{negative}.
+  \item Given \textbf{Ohm's Law} $\fbox{$V=IR$}$, with differentiation rule $\fbox{$(uv)' = u'v + uv'$}$.
+    $$V' = I'R + IR' \Rightarrow \theanswer{$R' = \frac{V' - I'R}{I}$}$$
+  \item Given \given{$V = 12V$} and \given{$I = 2A$}, we can calculate
+    $R = \frac{V}{I} = \frac{12}{2} \Rightarrow \given{$R = 6 \Omega$}$:
+    $$
+    R' = \frac{V' - I'R}{I} = \frac{1 - (-\frac{1}{3})6}{2}
+    = \frac{1 - (-2)}{2} = \frac{3}{2} = \theanswer{$1,5 \Omega/s$}
+    $$
+    As the result is \textbf{positive}, it is \textit{increasing}.
+\end{enumerate}
+
+\noindent In this exercise, we implement differentiation for known equation \textbf{Ohm's Law}.
+\newline I learnt that derivative with respect of time $t$ will result in the value of its changing rate.
+
+
+\newpage
+
+
+\begin{wrapfigure}{l}{0.25\textwidth}
+  \includegraphics[width=0.25\textwidth]{./assets/e11_2.png}
+\end{wrapfigure}
+\noindent\textbf{Exercise 2.} A 13-ft ladder is leaning against a house when its base starts to slide away.
+By the time the base is 12 ft from the house, the base is moving at the rate of 5 ft/sec.
+\begin{enumerate}
+  \item How fast is the top of the ladder sliding down the wall then?
+  \item At what rate is the area of the triangle formed by the ladder, wall, and ground changing then?
+  \item At what rate is the angle $\theta$ between the ladder and the ground changing then?
+\end{enumerate}
+
+\threestars
+
+\noindent Given the problem definition, we know that \given{$s = 13 ft$}, \given{$x = 12 ft$}, and \given{$x' = 5 ft/s$}.
+\newline We need to look for the current $y$. We know the \textbf{Triple Pythagoras} of $(5, 12, 13)$,
+so $y$ must be $5$. But let's proof that:
+$$s^2 = x^2 + y^2 \Rightarrow y^2 = s^2 - x^2 \Rightarrow y = \sqrt{s^2 - x^2}$$
+$$y = \sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} \Rightarrow \given{$y = 5 ft$}$$
+
+\begin{enumerate}
+  \item Given the equation for \textbf{Pythagoras Theorem} $\fbox{$s^2 = x^2 + y^2$}$.
+    \newline We know that the value of $s$ is constant (as it is an object, a ladder) so it
+    will not be differentiated with respect of time $t$.
+
+    $$13^2 = x^2 + y^2 \Rightarrow 0 = 2xx' + 2yy'$$
+    $$0 = xx' + yy' \Rightarrow yy' = -xx' \Rightarrow y' = - \frac{xx'}{y}$$
+    $$y' = - \frac{12 \times 5}{5} \Rightarrow \theanswer{$y' = -12 ft/sec$}$$
+
+    As the value is \textbf{negative}, it is \textit{decreasing} or going down.
+  \item Given the equation of triangle area is half of height multiplied by base.
+    This is a right-angled triangle (has one 90\textdegree corner), so the formula based on known value is:
+    $\fbox{$A = \frac{1}{2} x y$}$
+
+    $$A = \frac{1}{2} x y \Rightarrow A' = \frac{1}{2} (xy' + x'y)$$
+    $$
+    A' = \frac{1}{2} (12 \times -12 + 5 \times 5) = \frac{1}{2} (-144 + 25) = \frac{1}{2} (-119)
+    \Rightarrow \theanswer{$A' = -59,5ft^2/sec$}
+    $$
+
+    As the value is \textbf{negative}, it is \textit{decreasing}.
+  \item Given we know that $s$ is constant,
+    we can use either \textcircled{1} $\fbox{$cos\theta = \frac{x}{s}$}$
+    or \textcircled{2} $\fbox{$sin\theta = \frac{y}{s}$}$ formula.
+
+    To start, we use derivative from \textcircled{1} using
+    \textbf{Quotient Rule} $\fbox{$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$}$:
+    $$
+                cos\theta = \frac{x}{s}
+    \Rightarrow -sin\theta\theta' = \frac{x'}{s}
+    \Rightarrow \theta' = \frac{x'}{s(-sin\theta)}
+    $$
+
+    Then we substitute with \textcircled{2}:
+    $$
+    \theta' = \frac{x'}{s (-\frac{y}{s})} = \frac{5}{13 (-\frac{5}{13})} = -\frac{5}{5}
+    \Rightarrow \theanswer{$\theta' = -1 rad/sec$}
+    $$
+\end{enumerate}
+
+
+\newpage
+
+
+\begin{wrapfigure}[6]{l}{0.25\textwidth}
+  \includegraphics[width=0.25\textwidth]{./assets/e11_3.png}
+\end{wrapfigure}
+\noindent\textbf{Exercise 3.} A dinghy is pulled toward a dock by a rope from the bow through a ring on the dock 6ft above the bow.
+The rope is hauled in at the rate of 2 ft/sec.
+\begin{enumerate}
+  \item How fast is the boat approaching the dock when 10 ft of rope are out?
+  \item At what rate is the angle $\theta$ changing then (see the figure)?
+\end{enumerate}
+
+\threestars
+
+\noindent Given the problem definition, we know that \given{$y = 6 ft$}, \given{$s' = -2 ft/s$}, and \given{$s = 10 ft$}.
+\newline We know that $y$ is a constant value.
+\newline We need to look for the current $x$. We know the \textbf{Triple Pythagoras} of $(3, 4, 5)$,
+and the ratio suffice. So $x$ must be $8$. But let's proof that:
+$$s^2 = x^2 + y^2 \Rightarrow x^2 = s^2 - y^2 \Rightarrow x = \sqrt{s^2 - y^2}$$
+$$x = \sqrt{10^2 - 6^2} = \sqrt{100 - 36} = \sqrt{64} \Rightarrow \given{$x = 8 ft$}$$
+
+\begin{enumerate}
+  \item We will use \textbf{Pythagoras Theorem} $\fbox{$s^2 = x^2 + y^2$}$.
+    \newline We know earlier that $y$ is constant.
+
+    $$s^2 = x^2 + 6^2 \Rightarrow 2ss' = 2xx' + 0 \Rightarrow ss' = xx' \Rightarrow x' = \frac{ss'}{x}$$
+    $$x' = \frac{10 \times -2}{8} = -\frac{20}{8} \Rightarrow \theanswer{$x' = -2,5 ft/s$}$$
+
+    As the value is \textbf{negative}, it is \textit{decreasing}.
+  \item Given we know that $y$ is constant,
+    we can use either \textcircled{1} $\fbox{$cos\theta = \frac{y}{s}$}$
+    or \textcircled{2} $\fbox{$sin\theta = \frac{x}{s}$}$ formula.
+
+    To start, we use derivative from \textcircled{1} using
+    \textbf{Quotient Rule} $\fbox{$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$}$:
+    $$
+                cos\theta = \frac{y}{s}
+    \Rightarrow 
+    $$
+
+    % To start, we use derivative from \textcircled{1}:
+    % $$
+    % cos\theta = \frac{y}{s} \Rightarrow cos\theta = \frac{6}{s}
+    % \Rightarrow -sin\theta\theta' = \frac{y}{s'}
+    % \Rightarrow \theta' = \frac{y}{s'(-sin\theta)}
+    % $$
+    % $$
+    % \theta' = \frac{y}{s'(-\frac{x}{s})} = \frac{6}{2(-\frac{8}{10})} = -\frac{6}{1,6}
+    % \Rightarrow \theanswer{$\theta' = 3,75 rad/sec$}
+    % $$
+    %
+    % Then with \textcircled{2} $\fbox{$sin\theta = \frac{x}{s}$}$, we can substitute:
+\end{enumerate}
+
+
+\newpage
+
+
+\begin{wrapfigure}[6]{l}{0.2\textwidth}
+  \includegraphics[width=0.2\textwidth]{./assets/e11_4.png}
+\end{wrapfigure}
+\noindent\textbf{Exercise 4.} A balloon is rising vertically above a level, straight road at a constant rate of 1 ft/sec.
+\newline Just when the balloon is 65 ft above the ground, a bicycle moving at a constant rate of 17 ft/sec passes under it.
+\newline How fast is the distance s(t) between the bicycle and balloon increasing 3 sec later?
+
+\vspace{4em}
+\threestars
+\vspace{2em}
+
+\noindent Given the problem, we know that we have to count after 3 seconds.
+\newline Also we know that \given{$y_{before} = 65ft$}, \given{$y' = 1ft/sec$}, and \given{$x' = 17 ft/sec$}.
+\newline We need to know the value of $x$ and $y$ after 3 seconds.
+
+$$x = x' \times 3 = 17 \times 3 \Rightarrow \given{$x = 51 ft$}$$
+$$y = (y' \times 3) + y_{before} = (1 \times 3) + 65 \Rightarrow \given{$y = 68 ft$}$$
+
+\noindent Given $x$ and $y$ is known, we need to find the diagonal distance $s$ using \textbf{Pythagoras Theorem}.
+
+$$s^2 = x^2 + y^2 \Rightarrow s = \sqrt{x^2 + y^2}$$
+$$s = \sqrt{51^2 + 68^2} = \sqrt{2601 + 4624} = \sqrt{7225} \Rightarrow \given{$s = 85ft$}$$
+
+\noindent The problem is to find the speed of diagonal distance change $s'$.
+\newline We use the differentiation of \textbf{Pythagoras Theorem} with respect of time.
+
+$$s^2 = x^2 + y^2 \Rightarrow 2ss' = 2xx' + 2yy' \Rightarrow ss' = xx' + yy' \Rightarrow s' = \frac{xx' + yy'}{s}$$
+$$s' = \frac{51 \times 17 + 68 \times 1}{85} = \frac{935}{85} \Rightarrow \theanswer{$s' = 11 ft/sec$}$$
+
+
+\end{document}
