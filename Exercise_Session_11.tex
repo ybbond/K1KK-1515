@@ -9,11 +9,15 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, urlcolor=blue}
 
+\usepackage{amsmath}
+
 \newcommand{\threestars}{\begin{center}$ {\ast}\,{\ast}\,{\ast} $\end{center}}
 \newcommand{\theanswer}[1]{\colorbox{yellow}{#1}}
 \newcommand{\given}[1]{\colorbox{lime}{#1}}
-\newcommand{\Difft}[1]{$d#1/dt$}
-\newcommand{\difft}[1]{$\frac{d#1}{dt}$}
+\newcommand{\Deriv}[2]{\ensuremath{\partial#1/\partial#2}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial#1}{\partial#2}}}
+\newcommand{\DerivByT}[1]{\ensuremath{\Deriv{#1}{t}}}
+\newcommand{\derivByT}[1]{\ensuremath{\deriv{#1}{t}}}
 
 \title{Exercises for Kalkulus 1 K1KK 1515 Session 10 \& 11}
 \author{Yohanes Bandung Bondowoso (01085250015)}
@@ -27,29 +31,28 @@
 \noindent These exercises \underline{\textbf{originally}} is a requirement for attendance of asynchronous activity on Session 10.
 \newline Then I continue for the task of synchronous activity on Session 11.
 \newline I will solve all of the exercises for section \textbf{§Rates Equations}.
-\newline The source for this document can be found on \href{https://github.com/ybbond/K1KK-1515}{github:ybbond/K1KK-1515}.
 
 
 \vspace{2em}
 
 
-\begin{wrapfigure}{l}{0.22\textwidth}
-  \includegraphics[width=0.2\textwidth]{./assets/e11_1.png}
+\begin{wrapfigure}[9]{l}{0.18\textwidth}
+  \includegraphics[width=0.18\textwidth]{./assets/e11_1.png}
 \end{wrapfigure}
 \noindent\textbf{Exercise 1.} The voltage $V$ (volts), current $I$ (amperes), and resistance $R$ (ohms)
 of an electric circuit like the one shown here are related by the equation $V = IR$. Suppose that $V$ is increasing
 at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Let $t$ denote time in seconds.
 \begin{enumerate}
-  \item What is the value of \Difft{V}?
-  \item What is the value of \Difft{I}?
-  \item What equation relates \Difft{R} to \Difft{V} and \Difft{I}?
+  \item What is the value of \DerivByT{V}?
+  \item What is the value of \DerivByT{I}?
+  \item What equation relates \DerivByT{R} to \DerivByT{V} and \DerivByT{I}?
   \item Find the rate at which $R$ is changing when $V = 12 volts$ and $I = 2 amp$.
         Is $R$ increasing, or decreasing?
 \end{enumerate}
 
 \threestars
 
-\noindent I will write differentiation with the shorthand. So for example \Difft{V} will be $V'$.
+\noindent I will write differentiation with the shorthand. So for example \DerivByT{V} will be $V'$.
 \newline Given the problem definition, we know the answer for (1) and (2).
 
 \begin{enumerate}
@@ -57,7 +60,8 @@ at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Le
     \newline As the value is \textit{increasing}, it is \textbf{positive}.
   \item \theanswer{$I' = -\frac{1}{3} A/s$}
     \newline As the value is \textit{decreasing}, it is \textbf{negative}.
-  \item Given \textbf{Ohm's Law} $\fbox{$V=IR$}$, with differentiation rule $\fbox{$(uv)' = u'v + uv'$}$.
+  \item Given \textbf{Ohm's Law} $\fbox{$V=IR$}$, we differentiate with
+    \textbf{Product Rule} $\fbox{$(uv)' = u'v + uv'$}$.
     $$V' = I'R + IR' \Rightarrow \theanswer{$R' = \frac{V' - I'R}{I}$}$$
   \item Given \given{$V = 12V$} and \given{$I = 2A$}, we can calculate
     $R = \frac{V}{I} = \frac{12}{2} \Rightarrow \given{$R = 6 \Omega$}$:
@@ -68,7 +72,8 @@ at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Le
     As the result is \textbf{positive}, it is \textit{increasing}.
 \end{enumerate}
 
-\noindent In this exercise, we implement differentiation for known equation \textbf{Ohm's Law}.
+\noindent In this exercise, I implemented differentiation with \textbf{Product Rule}
+for known formula \textbf{Ohm's Law}.
 \newline I learnt that derivative with respect of time $t$ will result in the value of its changing rate.
 
 
@@ -95,7 +100,7 @@ $$s^2 = x^2 + y^2 \Rightarrow y^2 = s^2 - x^2 \Rightarrow y = \sqrt{s^2 - x^2}$$
 $$y = \sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} \Rightarrow \given{$y = 5 ft$}$$
 
 \begin{enumerate}
-  \item Given the equation for \textbf{Pythagoras Theorem} $\fbox{$s^2 = x^2 + y^2$}$.
+  \item Given the equation for \textbf{Pythagorean Theorem} $\fbox{$s^2 = x^2 + y^2$}$.
     \newline We know that the value of $s$ is constant (as it is an object, a ladder) so it
     will not be differentiated with respect of time $t$.
 
@@ -160,7 +165,7 @@ $$s^2 = x^2 + y^2 \Rightarrow x^2 = s^2 - y^2 \Rightarrow x = \sqrt{s^2 - y^2}$$
 $$x = \sqrt{10^2 - 6^2} = \sqrt{100 - 36} = \sqrt{64} \Rightarrow \given{$x = 8 ft$}$$
 
 \begin{enumerate}
-  \item We will use \textbf{Pythagoras Theorem} $\fbox{$s^2 = x^2 + y^2$}$.
+  \item We will use \textbf{Pythagorean Theorem} $\fbox{$s^2 = x^2 + y^2$}$.
     \newline We know earlier that $y$ is constant.
 
     $$s^2 = x^2 + 6^2 \Rightarrow 2ss' = 2xx' + 0 \Rightarrow ss' = xx' \Rightarrow x' = \frac{ss'}{x}$$
@@ -211,13 +216,13 @@ $$x = \sqrt{10^2 - 6^2} = \sqrt{100 - 36} = \sqrt{64} \Rightarrow \given{$x = 8 
 $$x = x' \times 3 = 17 \times 3 \Rightarrow \given{$x = 51 ft$}$$
 $$y = (y' \times 3) + y_{before} = (1 \times 3) + 65 \Rightarrow \given{$y = 68 ft$}$$
 
-\noindent Given $x$ and $y$ is known, we need to find the diagonal distance $s$ using \textbf{Pythagoras Theorem}.
+\noindent Given $x$ and $y$ is known, we need to find the diagonal distance $s$ using \textbf{Pythagorean Theorem}.
 
 $$s^2 = x^2 + y^2 \Rightarrow s = \sqrt{x^2 + y^2}$$
 $$s = \sqrt{51^2 + 68^2} = \sqrt{2601 + 4624} = \sqrt{7225} \Rightarrow \given{$s = 85ft$}$$
 
 \noindent The problem is to find the speed of diagonal distance change $s'$.
-\newline We use the differentiation of \textbf{Pythagoras Theorem} with respect of time.
+\newline We use the differentiation of \textbf{Pythagorean Theorem} with respect of time.
 
 $$s^2 = x^2 + y^2 \Rightarrow 2ss' = 2xx' + 2yy' \Rightarrow ss' = xx' + yy' \Rightarrow s' = \frac{xx' + yy'}{s}$$
 $$s' = \frac{51 \times 17 + 68 \times 1}{85} = \frac{935}{85} \Rightarrow \theanswer{$s' = 11 ft/sec$}$$
