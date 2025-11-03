@@ -226,4 +226,31 @@ $$s^2 = x^2 + y^2 \Rightarrow 2ss' = 2xx' + 2yy' \Rightarrow ss' = xx' + yy' \Ri
 $$s' = \frac{51 \times 17 + 68 \times 1}{85} = \frac{935}{85} \Rightarrow \theanswer{$s' = 11 ft/sec$}$$
 
 
+\newpage
+
+
+\section*{Supplements}
+
+\subsection*{Derivative of Pythagorean Theorem}
+
+\begin{align}
+  s^2 &= x^2 + y^2 \\
+  \derivByT{} s^2 &= \derivByT{} (x^2 + y^2) \\
+  \deriv{}{s}s^2\deriv{s}{t} &= \deriv{}{x}x^2\deriv{x}{t} + \deriv{}{y}y^2\deriv{y}{t} \\
+  2s^{2-1}\deriv{s}{t} &= 2x^{2-1}\deriv{x}{t} + 2y^{2-1}\deriv{y}{t} \\
+  2s\deriv{s}{t} &= 2x\deriv{x}{t} + 2y\deriv{y}{t} \\
+  2ss' &= 2xx' + 2yy'
+\end{align}
+
+\begin{enumerate}
+  \item Base \textbf{Pythagorean Theorem}.
+  \item We implement derivative with respect of time \derivByT{} on both side.
+  \item We expand the differentiation, also as it is implicit differentiation,
+    we add respecting differentiation with same unit.
+  \item We implement the differentiation, and keep the derived base unit.
+  \item This is the main result of differentiation in \textbf{Leibniz's notation}\footnote{source: Wikipedia \href{https://en.wikipedia.org/wiki/Notation_for_differentiation\#Leibniz's_notation}{"Notation for differentiation" §Leibniz's notation}}.
+  \item This is the \textbf{Lagrange's notation}\footnote{source: Wikipedia \href{https://en.wikipedia.org/wiki/Notation_for_differentiation\#Lagrange's_notation}{"Notation for differentiation" §Lagrange's notation}}.
+\end{enumerate}
+
+
 \end{document}
