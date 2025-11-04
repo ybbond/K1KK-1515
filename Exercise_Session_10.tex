@@ -1,14 +1,27 @@
 \documentclass[12pt]{article}
 
 \usepackage[paperwidth=21cm, paperheight=29.7cm, margin=1.5cm]{geometry}
+\usepackage{xcolor}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage{amsmath}
 
 \newcommand{\threestars}{\begin{center}$ {\ast}\,{\ast}\,{\ast} $\end{center}}
+\newcommand{\theanswer}[1]{\colorbox{yellow}{#1}}
+\newcommand{\given}[1]{\colorbox{lime}{#1}}
+\newcommand{\Deriv}[2]{\ensuremath{\partial#1/\partial#2}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial#1}{\partial#2}}}
+\newcommand{\DerivByT}[1]{\ensuremath{\Deriv{#1}{t}}}
+\newcommand{\derivByT}[1]{\ensuremath{\deriv{#1}{t}}}
 
 \title{Exercise for Kalkulus 1 K1KK 1515 Session 10}
 \author{Yohanes Bandung Bondowoso (01085250015)}
 \date{}
 
 \begin{document}
+\pagenumbering{gobble}
 \maketitle
 
 
@@ -16,41 +29,51 @@
 I will solve the exercise for the first section of \textbf{Rates Equations}.
 
 
+\vspace{2em}
+
+
+\begin{wrapfigure}[9]{l}{0.18\textwidth}
+  \includegraphics[width=0.18\textwidth]{./assets/e11_1.png}
+\end{wrapfigure}
+\noindent\textbf{Exercise 1.} The voltage $V$ (volts), current $I$ (amperes), and resistance $R$ (ohms)
+of an electric circuit like the one shown here are related by the equation $V = IR$. Suppose that $V$ is increasing
+at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Let $t$ denote time in seconds.
+\begin{enumerate}
+  \item What is the value of \DerivByT{V}?
+  \item What is the value of \DerivByT{I}?
+  \item What equation relates \DerivByT{R} to \DerivByT{V} and \DerivByT{I}?
+  \item Find the rate at which $R$ is changing when $V = 12 volts$ and $I = 2 amp$.
+        Is $R$ increasing, or decreasing?
+\end{enumerate}
+
+
 \threestars
 
 
-\begin{tabular}{|p{0.9\textwidth}}
-  \textbf{Exercise 1.} The voltage $V$ (volts), current $I$ (amperes), and resistance $R$ (ohms)
-  of an electric circuit like the one shown here are related by the equation $V = IR$. Suppose that $V$ is increasing
-  at the rate of 1 volt/sec while $I$ is decreasing at the rate of 1/3 amp/sec. Let $t$ denote time in seconds.
-  \begin{enumerate}
-    \item What is the value of $dV/dt$?
-    \item What is the value of $dI/dt$?
-    \item What equation relates $dR/dt$ to $dV/dt$ and $dI/dt$?
-    \item Find the rate at which $R$ is changing when $V = 12 volts$ and $I = 2 amp$.
-          Is $R$ increasing, or decreasing?
-  \end{enumerate}
-\end{tabular}\vspace{1em}
-
-\noindent I will write differentiation with the shorthand. So for example $dV/dt$ will be $V'$.
+\noindent I will write differentiation with the \textbf{Lagrange's notation}. So for example \DerivByT{V} will be $V'$.
 \newline Given the problem definition, we know the answer for (1) and (2).
 
 \begin{enumerate}
-  \item $V' = 1volt/sec$
+  \item \theanswer{$V' = 1 V/s$}
     \newline As the value is \textit{increasing}, it is \textbf{positive}.
-  \item $I' = -\frac{1}{3}amp/sec$
+  \item \theanswer{$I' = -\frac{1}{3} A/s$}
     \newline As the value is \textit{decreasing}, it is \textbf{negative}.
-  \item Given \textbf{Ohm's Law} $\fbox{$V=IR$}$, with differentiation rule $\fbox{$(uv)' = u'v + uv'$}$.
-    $$V' = I'R + IR' \Rightarrow R' = \frac{V' - I'R}{I}$$
-  \item Given $R = \frac{V}{I} = \frac{12}{2} = 6$, and the results so that:
-    $$R' = \frac{V' - I'R}{I} = \frac{1 - (-\frac{1}{3})6}{2} = \frac{1 - (-2)}{2} = \frac{3}{2} = 1,5ohm/sec$$
+  \item Given \textbf{Ohm's Law} $\fbox{$V=IR$}$, we differentiate with
+    \textbf{Product Rule} $\fbox{$(uv)' = u'v + uv'$}$.
+    $$V' = I'R + IR' \Rightarrow \theanswer{$R' = \frac{V' - I'R}{I}$}$$
+  \item Given \given{$V = 12V$} and \given{$I = 2A$}, we can calculate
+    $R = \frac{V}{I} = \frac{12}{2} \Rightarrow \given{$R = 6 \Omega$}$:
+    $$
+    R' = \frac{V' - I'R}{I} = \frac{1 - (-\frac{1}{3})6}{2}
+    = \frac{1 - (-2)}{2} = \frac{3}{2} = \theanswer{$1,5 \Omega/s$}
+    $$
     As the result is \textbf{positive}, it is \textit{increasing}.
 \end{enumerate}
 
-In this exercise, we implement differentiation for known equation \textbf{Ohm's Law}. I learnt that derivative with respect of time $t$ will result in the value of its velocity.
+\noindent In this exercise, I implemented differentiation with \textbf{Product Rule}
+for known formula \textbf{Ohm's Law}.
+\newline I learnt that derivative with respect of time $t$ will result in the value of its changing rate.
 
-
-\threestars
 
 
 \end{document}
